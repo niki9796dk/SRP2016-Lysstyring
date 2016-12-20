@@ -66,5 +66,3 @@ void loop() {
   // Kort delay for ikke at overflow API'en
   delay(500);
 }
-
-
