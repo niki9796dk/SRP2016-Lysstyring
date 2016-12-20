@@ -5,6 +5,7 @@ Denne fil har tilformål at være den grafiske brugergrænseflade som brugeren m
 
 -->
 
+
 <!-- Forudkrævede handlinger for resten af koden kan fungere optimalt -->
 <?php
 
