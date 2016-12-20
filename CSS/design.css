@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11-12-2016, 20:08:17
+    Author     : KFU24KLMP
+*/
+
+body{
+    margin: 0;
+}
+
+.LED{
+    width: 120px;
+    float: left;
+}
+
+.presets{
+    width: 120px;
+    float: left;
+}
+
+div{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+button{
+    width: 120px;
+}
