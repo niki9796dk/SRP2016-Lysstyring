@@ -1,5 +1,7 @@
 <?php
 
+// Denne fil har til formål at hente og tjekke alle gemte presets - til senere brug.
+
 
 // Inkluder readState.php for at få tilgang til relevant data.
 include $_SERVER['DOCUMENT_ROOT']."/SRP1/PHP/readState.php";
