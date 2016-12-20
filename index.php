@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+
+Denne fil har tilformål at være den grafiske brugergrænseflade som brugeren møder og fremviser livedata for brugeren
+
 -->
 
+<!-- Forudkrævede handlinger for resten af koden kan fungere optimalt -->
 <?php
+
+    // Vi inkludere readState.php og readState.php for at læse lysstadiet og hente gemte presets
     include('php/readState.php');
     include('php/readPresets.php');
     
+    // Funktionen lightbulb() har til formål at tjekke om en LED er tændt eller slukket
+    // Funktionen bruges i resten af koden til at kunne anvende det rigtige billede i forhold til lystadiet.
     function lightbulb($i){
         global $state;
         if ($state[$i] == "1"){echo "ON";}else{echo "OFF";}
     }
 ?>
 
+<!-- Starten af HTML koden -->
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Lysstyring</title>
+        <!-- Her inkluderes style dokumentet grundplan.css for at give dokumentet et bedre design -->
         <link href="CSS/grundplan.css" rel="stylesheet">
     </head>
     <body>
         
+        <!-- Første del af brugergrænsefladen er oversigten over boligen.
+             Grundplanen er opbygget af et net af "div" som hver definere en slags kasse på siden -->
         <div class="houseOuter">
+            
+                                        <!-- Grundet opsætningen gives den yderste div klassen "ON" eller "OFF" alt efter LED 7
+                                             Dette giver en lys eller mørk baggrund for det relaterede rum -->
             <div class="grund innerShadow <?php lightbulb(7) ?>">
 
                 <div class="left innerShadow">
                     <div class="top">
+                        <!-- For hvert rum sættes classen til "ON" eller "OFF" for at give en lys eller mørk baggrund -->
                         <div id="Room0" class="L0 innerShadow <?php lightbulb(0) ?>">
                             <div class="lightbulb">
                                 <form action='PHP/LED.php' method='POST'>
+                                    <!-- For hvert rum placeres et billede af en pære, og funktionen lightbulb() registere om lyset er tændt eller slukket, og sætter billedet således -->
                                     <input name="LED" value="0" type="image" src="IMG/<?php lightbulb(0) ?>.png" height="100%" border="0" alt="Submit" />
                                 </form>
                             </div>
@@ -135,6 +149,8 @@ and open the template in the editor.
                 </div>
             </div>
             
+            
+            <!-- Anden del af brugergrænsefladen tilgangen til presets -->
             <div class="presets">
                 <div class="content">
                     <h2>Presets</h2>
@@ -142,6 +158,7 @@ and open the template in the editor.
                     <br>
                     <?php
                     
+                        // For hvert preset oprettes en form med ID og en knap med preset navn inkluderet.
                         for ($i = 0; $i < $presetCount; $i++){
             
                             echo "<form action='PHP/presets.php' method='POST'>".
