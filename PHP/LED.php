@@ -1,5 +1,4 @@
 <?php
-
 // Denne fil har til formål at ændre lysstadiet for en specifik LED
 
 // Starter output buffer som sikkerhed.
